@@ -1,0 +1,12 @@
+branches:
+  - main
+debug: true
+ci: true
+dryRun: false
+tagFormat: v${version}
+plugins:
+  - "@semantic-release/commit-analyzer"
+  - "@semantic-release/release-notes-generator"
+  - "@semantic-release/github"
+  - path: "@semantic-release/exec"
+    successCmd: bash branch.sh "${nextRelease.version}"
